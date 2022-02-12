@@ -1,0 +1,55 @@
+  564  ansible -a app
+  565  ansible multi -a hostname
+  571  ansible multi -a app1
+  572  ansible multi -a db
+  576  ansible multi -a app1
+  577  ansible multi -a orc-app1
+  582  ansible multi -a orc-app1
+  583  ansible multi -a app
+  628  ansible multi -a app
+  629  ansible multi -a "hostname"
+  630  ansible app -a "hostname"
+  673  ansible app -a "hostname"
+  676  ansible app -a "hostname"
+  677  ansible app -a "app1"
+  678  ansible app -a "app"
+  711  ansible multi -a "hostname"
+  712  ansible multi -a "app"
+  718  ansible multi -a app
+  723  ansible multi -a app
+  724  ansible multi -a app1
+  725  ansible multi -a "hostname"
+  727  ansible multi -a "hostname"
+  735  ansible multi -a "hostname"
+  740  ansible multi -a "hostname"
+  747  ansible multi -a "hostname"
+  748  ansible db -a "hostname"
+  749  ansible app -a "hostname"
+  751  ansible app -a "hostname"
+  752  ansible main -a "hostname"
+  753  ansible app -a "hostname"
+  754  ansible app -a "hostname"
+  755  ansible app -a "hostname" -i /etc/ansible/hosts 
+  756  ansible multi -a "hostname" -i /etc/ansible/hosts 
+  757  ansible multi -a "hostname" -f 1
+  758  sudo ansible multi -a "hostname" -f 1
+  759  ansible multi -a "hostname" 
+  760  sudo ansible multi -a "hostname" 
+  768  sudo ansible multi -a "hostname" 
+  772  sudo ansible multi -a "hostname" 
+  779  ansible multi -a "hostname" 
+  782  ansible multi -a "hostname" 
+  784  ansible multi -a "hostname" 
+  786  ansible multi -a "hostname" 
+  790  ansible multi -a "hostname" 
+  791  ansible multi -a "hostname"
+  792  ansible multi -a "hostname" -k private_key_app1
+  793  ansible multi -a "hostname" -k "private_key_app1"
+  794  ansible multi -a "hostname"
+  802  ansible multi -a "hostname"
+ 1087  ansible --help
+ 1521  sudo history | grep ansible > newfile
+ 1522  history | grep ansible > newfile
+ 1523  history | grep ansible > sudo newfile
+ 1524  history | sudo grep ansible > newfile
+ 1525  history | sudo grep ansible > /home/beyli/anshis
