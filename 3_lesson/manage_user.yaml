@@ -1,0 +1,7 @@
+- - -
+- ansible app -b -m group -a "name=admin state=present gid=7777" # Создание группы имя админ состояние "настоящее" gid 7777
+- ansible app -b -m user -a "name=cheky group=admin createhome=yes uid=6666" # Добавляем юзера в группу  создаем ему домашнюю директортю
+- ansible app -b -m user -a "name=cheky group=admin createhome=yes uid=6666 shell=/bin/bash generate_ssh_key=yes" # Такой же вариант как 3п. добавляем shell модуль и генерацию
+                                                                                                                  # shh ключей
+- ansible app -b -m user -a "name=cheky state=absent remove=yes" # Удаляем пользователя state=absent remove=yes 
+
