@@ -1,0 +1,13 @@
+- - -
+- ansible app -b -m package -a "name=git state=present" # Есть такие генеральные пакеты (например как git)  которые можно установить специальными командами ansible 
+
+
+- ansible multi -m stat -a "path=/etc/environment" # Анализ текущего файла 
+- ansible multi -m copy -a "src=/etc/hosts dest=/tmp/hosts" # Модуль copy копирование файла на серверах указывается источкиник как src= и направление файла dest=
+- ansible multi -b -m fetch -a "src=/etc/hosts dest=/tmp" # flat=yes для копирование с одного хоста так как файл хост с db может оказаться на всех серверах
+- ansible multi -m file -a "dest=/tmp/test mode=641 state=directory" # Создание директории file  дест=путь стэйт=директория
+- ansible multi -b -m file -a "src=/tmp/hosts dest=/home/vagrant/hosts owner=root group=root state=link" # file может создавать символическую ссылку
+                                                                                                         # указываем путь src на что делается ссылка и куда dest
+                                                                                                         # Далее владелец рут группа рут , state=Link состояние ссылка
+- ansible multi -b -m file -a "dest=/tmp/test state=absent" # Удаление файла  все также только состояние state=absent
+
