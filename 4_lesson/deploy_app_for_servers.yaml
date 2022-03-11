@@ -1,0 +1,10 @@
+- - -
+- добавляем ключ rsa.pub в ваш git акаунт для того чтоб получить доступ к репо
+- ansible app -b -m git -a "repo=https://github.com/Syudji/python_DevOps.git dest=/opt/myapp update=yes version=main" 
+# - 3.п Задача развернуть на app сервера новую версию app .
+# - В данном случае пойдем по пути https
+# - module git
+# - дальше в ковычках репозиторий, указываем куда развернуть  наш деплой на северах
+# - update=yes указывае version=main это ветка таг в репо
+- ansible app package -b -m yum "name=git state=present" # На случай если на целевых серверах не будет Git'a
+- ansible app -b -a "/opt/app/update.sh" #  - запускаем скрипт обновления
