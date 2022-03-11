@@ -1,0 +1,10 @@
+# Для ускорения в 2 - 4 раза работу ansible
+# 1 в sudoers файле  требуется убрав комент со стройки Defaults:username!requiretty
+# 2 нужно убрать проверку пароля в Sudo password  NOPASSWD в судо файле
+
+# Синтаксис в плейбуке
+
+- - -
+- hosts: all
+  accelerate: true 
+  
