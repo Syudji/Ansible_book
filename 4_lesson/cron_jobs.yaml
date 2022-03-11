@@ -1,0 +1,6 @@
+- - -
+- sudo ansible multi -m copy -a "src=/root/script dest=/home/vagrant/ mode=777" # Копируем на наши сервера файл с правами
+- ansible multi -b -m cron -a "name='daily-cron-all-servers' hour=18 minute=3 job='/root/script'" # заставляем ansible засунуть в крон задачу каждый 18:03 запускаем скрипт по адресс
+- ansible multi -b -m cron -a "name='daily-cron-all-servers' state=absent" # убиваем задачу в кроне на всех
+- cron_file=/etc/cron.d # такой аргумент позволит самостоятельно изменить крон файл 
+
