@@ -1,0 +1,5 @@
+- - -
+- ansible multi -b -a "tail /var/log/messages" # Вывод с помощью тейла часть лога через ансбл
+                                               # Следует учесть несколько факторов 1. tail -f не работает с ансбл, так же плохая идея переанправоение вывода.
+                                               # 3. Чтоб применять фильтрацию греп и прочее нужно использовать Shell module -m shell
+- ansible multi -b -m shell -a "tail /var/log/messages | grep ansible-command | wc -l"  # Данная команда покажет сколько раз вводили комманду shell ansible 
