@@ -1,0 +1,26 @@
+---             # Эта линия говорит о том что перед нами документ формата YAML
+- hosts: all    # эта строка говорит ansible запустить на всех хостах текущий плейбук
+  become: yes   # Запуск команды через sudo 
+
+
+  tasks:                                  #  Данная строка говорит о том что, ниже начинается список задач.
+    - name: Install Apache.               # Это не модуль а строка для удобочитаемого лога, плейбука.
+      yum: name={{ item }} state=present  # используем переменную для определения имени устанавливаемых программ
+      with_items:                         # Создаем список значений для переменной item
+        - httpd                           #
+        - httpd-devel                     # Сами значения присваеваемые переменной
+    - name: Copy configuration files.
+      copy:                               # Модуль копирования
+        src: "{{ item.src }}"             # Обьявляем переменную
+        dest: "{{ item.dest }}"           # Обьявляем переменную
+        group: root                       # Владелец root 
+        owner: root                       # Группа root 
+        mode: 0644                        # rw/r/r
+      with_items:                         # Обьявляем значения переменных
+        - src: "httpd.conf"                         # Значения переменных
+          dest: "/etc/httpd/conf/httpd.conf"        # Значения переменных
+        - src: "httpd-vhosts.comf"                  # Значения переменных
+          dest: "/etc/httpd/conf/httpd-vhosts.conf" # Значения переменных
+    - name: Make sure Apache is started now and at boot. # Имя таска
+      service: name=httpd state=started enabled=yes      # Модуль service  имя httpd состояние запустить, enabled=yes позволить автозапуск.
+      
