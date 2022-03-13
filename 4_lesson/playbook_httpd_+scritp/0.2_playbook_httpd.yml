@@ -1,5 +1,5 @@
 ---             # Эта линия говорит о том что перед нами документ формата YAML
-- hosts: all    # эта строка говорит ansible запустить на всех хостах текущий плейбук
+- hosts: all    # эта строка говорит ansible запустить на всех хостах текущий плейбук  # В командной строке можно добавить --limit изменив направление плейбука
   become: yes   # Запуск команды через sudo 
 
 
@@ -23,4 +23,4 @@
           dest: "/etc/httpd/conf/httpd-vhosts.conf" # Значения переменных
     - name: Make sure Apache is started now and at boot. # Имя таска
       service: name=httpd state=started enabled=yes      # Модуль service  имя httpd состояние запустить, enabled=yes позволить автозапуск.
-      
+
