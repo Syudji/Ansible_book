@@ -72,6 +72,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "main" do |main|
     main.vm.hostname = "orc-main.dev"
     main.vm.network :public_network, ip: "192.168.60.2"
-    main.vm.network :public_network, ip: "192.168.31.55"
+    main.vm.network :public_network, ip: "192.168.178.29"
   end
 end
